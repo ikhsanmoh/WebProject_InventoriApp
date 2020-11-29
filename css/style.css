@@ -1,0 +1,144 @@
+/* Layout Style */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  letter-spacing: 0.5px;
+}
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  background-color: lightgray;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  /* background-color: #333a23; */
+  background-color: #262626;
+  color: white;
+  /* font-weight: 900; */
+  padding: 15px 25px;
+  height: 30px;
+  /* width: 100%; */
+  /* text-align: center; */
+}
+
+.sidebar {
+  /* background-color: lightslategrey; */
+  background-color: #404040;
+  margin: 0;
+  /* padding: 10px 10px; */
+  width: 20%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+}
+
+.user-panel {
+  /* background-color: lightskyblue; */
+  background-color: #404040;
+  border-top: #666666 solid 2px;
+  border-bottom: #666666 solid 2px;
+  padding: 25px 10px;
+  margin: 10px 0;
+  text-align: center;
+  color: lightgray;
+}
+
+/* Deleted */
+/* .navbar {
+  background-color: lightskyblue;
+  padding: 10px 10px;
+} */
+
+.main-content {
+  /* background-color: #0c215a; */
+  background-color: #f6f4f4;
+  color: black;
+  margin: 0;
+  /* margin-bottom: 0px; */
+  padding: 20px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.footer {
+  position: fixed;
+  height: 30px;
+  padding: 10px 10px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* background-color: #333a23; */
+  background-color: #262626;
+  color: white;
+  text-align: center;
+}
+
+/* Komponen Style */
+ul {
+  list-style-type: none;
+  margin: 0; 
+  padding: 0; 
+  overflow: hidden; 
+  /* background-color: green; */
+  background-color: #404040;
+}
+
+a {
+  text-decoration: none;
+}
+
+.sidebar ul li a{
+  /* color: #323538;
+  display: block; */
+  display: block; 
+  color: white; 
+  /* text-align: center;  */
+  padding: 15px 25px; 
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.sidebar ul li {
+  padding: 0;
+}
+
+.sidebar ul li:hover {
+  /* background-color: lightgreen;  */
+  background-color: #333333;
+  color: lightgray;
+}
+
+.active {
+  background-color: #262626;
+  color: lightgray; 
+  border-left: 2px solid;
+}
+
+/* Partials */
+.card {
+  background-color: #e6e6e6;
+  color: darkslategray;
+  /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+  border-radius: 5px;
+}
+
+.card-header {
+  background-color: lightgray;
+  padding: 15px 25px;
+  border-radius: 5px 5px 0 0;
+}
+
+.card-body {
+  background-color: #e6e6e6;
+  padding: 15px 30px;
+  border-radius: 0 0 5px 5px;
+}

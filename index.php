@@ -1,0 +1,77 @@
+<?php
+$page = isset($_GET['page']) ? $_GET['page'] : false;
+$module = isset($_GET['module']) ? $_GET['module'] : false;
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h3>InventoriApp</h3>
+    </div>
+    <div class="sidebar">
+      <div class="user-panel">
+        User
+      </div>
+      <!-- <nav class="navbar"> -->
+      <ul>
+        <li class="<?php echo !$module ? 'active' : '' ?>"><a href="index.php">Dasboard</a></li>
+        <li class="<?php echo $module == 'kategori' ? 'active' : '' ?>"><a href="index.php?page=kategori&module=kategori">Kategori</a></li>
+        <li class="<?php echo $module == 'item' ? 'active' : '' ?>"><a href="index.php?page=item&module=item">Item</a></li>
+        <li class="<?php echo $module == 'stok' ? 'active' : '' ?>"><a href="index.php?page=stok&module=stok">Stok</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+      <!-- </nav> -->
+    </div>
+
+    <div class="main-content">
+      <!-- <div class="card">
+        Konten Utama
+      </div> -->
+      <?php
+      $filename = "app/pages/$module/$page.html";
+
+      if (file_exists($filename)) {
+        include_once($filename);
+      } else {
+        // include_once("main.php");
+        echo "<div class='card'>
+                <h3 class='card-header'>
+                  Judul Section
+                </h3>
+                <div class='card-body'>
+                  <p><b>Konten Utama</b></p><br>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit nihil dolor perspiciatis tempore! Neque reiciendis quaerat officiis amet, exercitationem quae rerum repellendus provident inventore architecto illo, cupiditate nostrum odit dolores!
+                    Nemo laborum eaque sed, possimus culpa suscipit accusantium adipisci distinctio deserunt unde libero excepturi quod rem? Deleniti explicabo itaque nostrum doloribus. Voluptate iusto libero odit facere quas voluptates tempora atque.
+                    Dolores assumenda ipsa ex reiciendis laboriosam accusamus quibusdam molestias, ab autem, mollitia, fuga sed necessitatibus ipsam sit quo aliquam ut porro fugiat! Inventore, quasi reprehenderit quibusdam in placeat earum repellat!
+                    Qui at aliquid velit illo, unde minus fugiat earum in id quidem quod recusandae similique? Consectetur debitis asperiores atque, id ducimus nostrum magni, itaque ullam, ipsam quisquam architecto incidunt facilis.
+                    Nemo impedit obcaecati repellendus iusto, earum possimus, quasi odio placeat nulla explicabo neque. Doloremque quibusdam similique placeat exercitationem aspernatur provident doloribus sit numquam! Dolorem recusandae eos enim, ullam earum nisi.
+                    Atque quas nobis doloribus quo quaerat ipsa veniam iure, natus porro culpa quos explicabo doloremque nesciunt in iste fugit molestias ad cum sint sapiente voluptates assumenda voluptatum. Accusamus, non veniam?
+                    At, placeat provident voluptate excepturi incidunt consectetur. Consectetur excepturi labore possimus quidem amet officia quas corrupti nobis, veniam dolore, eos qui, illum maiores est! Pariatur maiores facere sunt voluptate quos!
+                    Amet delectus voluptatum temporibus saepe deleniti? Illo doloremque quisquam voluptatibus harum consequatur quas molestias inventore maiores, vitae iste mollitia sed ut minima ipsum eveniet id, culpa nostrum temporibus commodi nihil?
+                    Veniam, consectetur illo aperiam dolorum et commodi voluptas animi distinctio beatae esse debitis iste fuga quod voluptatem reprehenderit labore pariatur. Voluptatum quibusdam fugit nemo ex nam reiciendis vel voluptas iusto.
+                    Est, fugit architecto doloribus optio commodi tenetur quos, minus sed perspiciatis nobis delectus consectetur modi nostrum, repellat fuga inventore? Cumque rerum omnis praesentium voluptatum, doloribus soluta voluptatem voluptates quis nihil.
+                  </p>
+                </div>
+              </div>";
+      }
+      ?>
+
+    </div>
+    <footer class="footer">
+      <h5>&copy; Copyright 2020 User</h5>
+    </footer>
+  </div>
+
+</body>
+
+</html>
