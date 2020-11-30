@@ -64,9 +64,13 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                 <td><input type="number" name="" id=""></td>
               </tr>
               <tr>
+                <td><label for="">Jumlah</label></td>
+                <td><input type="number" name="" id=""></td>
+              </tr>
+              <tr>
                 <td></td>
                 <td style="text-align: right;">
-                  <input class="btn-merah" type="reset" value="Batal">
+                  <a class="btn-merah" style="font-size: 0.85rem;" href="<?php echo BASE_URL . "app/item/item.php?page=item"; ?>">Batal</a>
                   <input class="btn-biru" type="submit" value="Simpan">
                 </td>
               </tr>

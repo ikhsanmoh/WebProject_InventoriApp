@@ -43,39 +43,40 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
           Daftar Item
         </h3>
         <div class='card-body'>
-          <p><b>Konten Utama</b></p><br>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit nihil dolor perspiciatis tempore! Neque
-            reiciendis quaerat officiis amet, exercitationem quae rerum repellendus provident inventore architecto illo,
-            cupiditate nostrum odit dolores!
-            Nemo laborum eaque sed, possimus culpa suscipit accusantium adipisci distinctio deserunt unde libero
-            excepturi quod rem? Deleniti explicabo itaque nostrum doloribus. Voluptate iusto libero odit facere quas
-            voluptates tempora atque.
-            Dolores assumenda ipsa ex reiciendis laboriosam accusamus quibusdam molestias, ab autem, mollitia, fuga sed
-            necessitatibus ipsam sit quo aliquam ut porro fugiat! Inventore, quasi reprehenderit quibusdam in placeat
-            earum repellat!
-            Qui at aliquid velit illo, unde minus fugiat earum in id quidem quod recusandae similique? Consectetur
-            debitis asperiores atque, id ducimus nostrum magni, itaque ullam, ipsam quisquam architecto incidunt
-            facilis.
-            Nemo impedit obcaecati repellendus iusto, earum possimus, quasi odio placeat nulla explicabo neque.
-            Doloremque quibusdam similique placeat exercitationem aspernatur provident doloribus sit numquam! Dolorem
-            recusandae eos enim, ullam earum nisi.
-            Atque quas nobis doloribus quo quaerat ipsa veniam iure, natus porro culpa quos explicabo doloremque
-            nesciunt in iste fugit molestias ad cum sint sapiente voluptates assumenda voluptatum. Accusamus, non
-            veniam?
-            At, placeat provident voluptate excepturi incidunt consectetur. Consectetur excepturi labore possimus quidem
-            amet officia quas corrupti nobis, veniam dolore, eos qui, illum maiores est! Pariatur maiores facere sunt
-            voluptate quos!
-            Amet delectus voluptatum temporibus saepe deleniti? Illo doloremque quisquam voluptatibus harum consequatur
-            quas molestias inventore maiores, vitae iste mollitia sed ut minima ipsum eveniet id, culpa nostrum
-            temporibus commodi nihil?
-            Veniam, consectetur illo aperiam dolorum et commodi voluptas animi distinctio beatae esse debitis iste fuga
-            quod voluptatem reprehenderit labore pariatur. Voluptatum quibusdam fugit nemo ex nam reiciendis vel
-            voluptas iusto.
-            Est, fugit architecto doloribus optio commodi tenetur quos, minus sed perspiciatis nobis delectus
-            consectetur modi nostrum, repellat fuga inventore? Cumque rerum omnis praesentium voluptatum, doloribus
-            soluta voluptatem voluptates quis nihil.
-          </p>
+          <div style="width: 98%; margin: auto;">
+            <a class="btn-hijau" href="<?php echo BASE_URL . "app/item/tambah-item.php?page=item"; ?>">Tambah Produk</a><br><br>
+            <table class="table-strip" style="width: 100%; text-align: center;">
+              <thead>
+                <th>#</th>
+                <th>Nama Produk</th>
+                <th>Kategori</th>
+                <th>Harga</th>
+                <th>Aksi</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Produk 1</td>
+                  <td>Kat 1</td>
+                  <td>Rp. 200.000</td>
+                  <td style="font-size: 0.8rem;">
+                    <a class="btn-merah" href="<?php echo BASE_URL . "app/item/tambah-item.php"; ?>">Hapus</a>
+                    <a class="btn-biru" href="<?php echo BASE_URL . "app/item/edit-item.php?page=item"; ?>">Edit</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Produk 2</td>
+                  <td>Kat 2</td>
+                  <td>Rp. 500.000</td>
+                  <td style="font-size: 0.8rem;">
+                    <a class="btn-merah" href="<?php echo BASE_URL . "app/item/tambah-item.php?page=item"; ?>">Hapus</a>
+                    <a class="btn-biru" href="<?php echo BASE_URL . "app/item/edit-item.php?page=item"; ?>">Edit</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 

@@ -189,33 +189,54 @@ textarea {
   padding: 5px;
 }
 
+.table-strip,
+.table-strip th,
+.table-strip td {
+  border: 1px black solid;
+  border-collapse: collapse;
+  padding: 10px;
+  background-color: whitesmoke;
+}
+
 .btn-putih {
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 7px 15px;
+  border-radius: 2px;
   background-color: whitesmoke;
   cursor: pointer;
+  text-decoration: none;
+  border: none;
+  display: inline-block;
 }
 
 .btn-biru {
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 7px 15px;
+  border-radius: 2px;
   background-color: #1a53ff;
   color: white;
   cursor: pointer;
+  text-decoration: none;
+  border: none;
+  display: inline-block;
 }
 
 .btn-merah {
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 7px 15px;
+  border-radius: 2px;
   background-color: #ff3333;
   color: white;
   cursor: pointer;
+  text-decoration: none;
+  border: none;
+  display: inline-block;
 }
 
 .btn-hijau {
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 7px 15px;
+  border-radius: 2px;
   background-color: #47d147;
   color: white;
   cursor: pointer;
+  text-decoration: none;
+  border: none;
+  display: inline-block;
 }

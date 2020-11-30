@@ -8,9 +8,9 @@
     padding: 10px;
   }
 
-  .table tr td input[type="text"],
-  input[type="number"],
-  select {
+  .table input[type="text"],
+  .table input[type="number"],
+  .table select {
     width: 100%;
     padding: 5px;
   }
@@ -20,34 +20,54 @@
     border-radius: 5px;
     background-color: whitesmoke;
     cursor: pointer;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
   }
 
   .btn-biru {
-    padding: 5px 10px;
+    padding: 7px 20px;
     border-radius: 5px;
     background-color: #1a53ff;
     color: white;
     cursor: pointer;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
   }
 
   .btn-merah {
-    padding: 5px 10px;
+    padding: 7px 20px;
     border-radius: 5px;
     background-color: #ff3333;
     color: white;
     cursor: pointer;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
   }
 
   .btn-hijau {
-    padding: 5px 10px;
+    padding: 10px 20px;
     border-radius: 5px;
     background-color: #47d147;
     color: white;
     cursor: pointer;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+  }
+
+  .table-strip,
+  .table-strip th,
+  .table-strip td {
+    border: 1px black solid;
+    border-collapse: collapse;
+    padding: 10px;
   }
 </style>
 <div style="background-color: whitesmoke; width: 1000px; margin: auto; margin-top: 100px; padding: 20px;">
-  <form action="#">
+  <!-- <form action="#">
     <table class="table">
       <tr>
         <td><label for="">Nama Barang</label></td>
@@ -79,5 +99,37 @@
         </td>
       </tr>
     </table>
-  </form>
+  </form> -->
+
+  <table class="table-strip" style="width: 70%; margin: auto; text-align: center;">
+    <thead>
+      <th>#</th>
+      <th>Nama</th>
+      <th>Kategori</th>
+      <th>Harga</th>
+      <th>Aksi</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Item 1</td>
+        <td>Kat 1</td>
+        <td>Rp. 200.000</td>
+        <td>
+          <button>Hapus</button>
+          <button>Edit</button>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Item 2</td>
+        <td>Kat 2</td>
+        <td>Rp. 500.000</td>
+        <td>
+          <a class="btn-merah" href="#" style="font-size:medium;">Hapus</a>
+          <a class="btn-biru" href="">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
