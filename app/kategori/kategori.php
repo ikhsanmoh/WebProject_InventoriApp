@@ -36,9 +36,11 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
 
     <div class="main-content">
 
+      <h1>Kategori</h1>
+      <hr class="garis-hor">
       <div class='card'>
         <h3 class='card-header'>
-          Kategori
+          Daftar Kategori
         </h3>
         <div class='card-body'>
           <p><b>Konten Utama</b></p><br>

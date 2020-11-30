@@ -35,7 +35,8 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
     </div>
 
     <div class="main-content">
-
+      <h1>Dashboard</h1>
+      <hr class="garis-hor">
       <div class='card'>
         <h3 class='card-header'>
           Dashboard

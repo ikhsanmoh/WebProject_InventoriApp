@@ -63,7 +63,7 @@ html, body {
   /* background-color: #0c215a; */
   /* background-color: inherit; */
   /* background-color: #f6f4f4; */
-  color: black;
+  color: #4d4d4d;
   margin: 0;
   /* margin-bottom: 0px; */
   padding: 20px;
@@ -163,4 +163,59 @@ a {
 .card-login-act {
   margin-top: 30px;
   float: right;
+}
+
+.garis-hor {
+  height: 2px; 
+  background-color: #737373; 
+  margin-top:10px; 
+  margin-bottom:30px
+}
+
+.table {
+  margin: auto;
+  width: 500px;
+}
+
+.table tr td {
+  padding: 10px;
+}
+
+.table tr td input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 5px;
+}
+
+.btn-putih {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+
+.btn-biru {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #1a53ff;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-merah {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #ff3333;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-hijau {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #47d147;
+  color: white;
+  cursor: pointer;
 }
