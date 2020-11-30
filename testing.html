@@ -1,0 +1,83 @@
+<style>
+  .table {
+    margin: auto;
+    width: 500px;
+  }
+
+  .table tr td {
+    padding: 10px;
+  }
+
+  .table tr td input[type="text"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .btn-putih {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    cursor: pointer;
+  }
+
+  .btn-biru {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #1a53ff;
+    color: white;
+    cursor: pointer;
+  }
+
+  .btn-merah {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #ff3333;
+    color: white;
+    cursor: pointer;
+  }
+
+  .btn-hijau {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #47d147;
+    color: white;
+    cursor: pointer;
+  }
+</style>
+<div style="background-color: whitesmoke; width: 1000px; margin: auto; margin-top: 100px; padding: 20px;">
+  <form action="#">
+    <table class="table">
+      <tr>
+        <td><label for="">Nama Barang</label></td>
+        <td><input type="text" name="" id=""></td>
+      </tr>
+      <tr>
+        <td><label for="">Kategori</label></td>
+        <td>
+          <select name="" id="">
+            <option value="">--Pilih--</option>
+            <option value="">Opsi 1</option>
+            <option value="">Opsi 2</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="">Harga</label></td>
+        <td><input type="number" name="" id=""></td>
+      </tr>
+      <tr>
+        <td><label for="">Status</label></td>
+        <td><input type="radio" name="r" id="">On <input type="radio" name="r" id="">Off</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td style="text-align: right;">
+          <input class="btn-hijau" type="reset" value="Tambah">
+          <input class="btn-biru" type="submit" value="Simpan">
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

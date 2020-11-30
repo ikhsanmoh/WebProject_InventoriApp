@@ -9,10 +9,12 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
+  background-color: #f6f4f4;
 }
 
 .container {
-  background-color: lightgray;
+  /* background-color: lightgray; */
+  /* background-color: inherit; */
   height: 100%;
   padding: 0;
   margin: 0;
@@ -59,7 +61,8 @@ html, body {
 
 .main-content {
   /* background-color: #0c215a; */
-  background-color: #f6f4f4;
+  /* background-color: inherit; */
+  /* background-color: #f6f4f4; */
   color: black;
   margin: 0;
   /* margin-bottom: 0px; */
@@ -141,4 +144,23 @@ a {
   background-color: #e6e6e6;
   padding: 15px 30px;
   border-radius: 0 0 5px 5px;
+}
+
+.card-login {
+  color: white;
+  width: 300px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #4d4d4d;
+  text-align: center;
+  border-radius: 7px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.card-login-act {
+  margin-top: 30px;
+  float: right;
 }
