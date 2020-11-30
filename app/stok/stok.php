@@ -1,5 +1,5 @@
 <?php
-include "config/config.php";
+include "../../config/config.php";
 
 $page = isset($_GET['page']) ? $_GET['page'] : false;
 ?>
@@ -10,6 +10,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="<?php echo BASE_URL . "css/style.css"; ?>">
+  <title>Stok</title>
 </head>
 
 <body>
@@ -37,7 +38,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
 
       <div class='card'>
         <h3 class='card-header'>
-          Judul Section
+          Stok
         </h3>
         <div class='card-body'>
           <p><b>Konten Utama</b></p><br>
