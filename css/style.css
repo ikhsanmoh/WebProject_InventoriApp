@@ -240,3 +240,18 @@ textarea {
   border: none;
   display: inline-block;
 }
+
+/* Grid Sistem */
+.box-baris {
+  margin: 5px;
+  margin-bottom: 10px;
+  /* text-align: center; */
+}
+
+.box-kolom {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 20px;
+  /* margin: auto; */
+  /* float: left; */
+}

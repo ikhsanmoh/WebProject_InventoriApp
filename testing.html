@@ -1,4 +1,6 @@
+<link rel="stylesheet" href="css/style.css">
 <style>
+  /* Table */
   .table {
     margin: auto;
     width: 500px;
@@ -15,6 +17,15 @@
     padding: 5px;
   }
 
+  .table-strip,
+  .table-strip th,
+  .table-strip td {
+    border: 1px black solid;
+    border-collapse: collapse;
+    padding: 10px;
+  }
+
+  /* Button */
   .btn-putih {
     padding: 5px 10px;
     border-radius: 5px;
@@ -58,15 +69,21 @@
     display: inline-block;
   }
 
-  .table-strip,
-  .table-strip th,
-  .table-strip td {
-    border: 1px black solid;
-    border-collapse: collapse;
-    padding: 10px;
+  /* Grid */
+  .box-baris {
+    margin: 5px;
+    margin-bottom: 10px;
+    /* text-align: center; */
+  }
+
+  .box-kolom {
+    /* margin: auto; */
+    /* float: left; */
+    width: 100%;
+    display: inline-block;
   }
 </style>
-<div style="background-color: whitesmoke; width: 1000px; margin: auto; margin-top: 100px; padding: 20px;">
+<div style="background-color: whitesmoke; padding: 20px; text-align: center;">
   <!-- <form action="#">
     <table class="table">
       <tr>
@@ -100,8 +117,7 @@
       </tr>
     </table>
   </form> -->
-
-  <table class="table-strip" style="width: 70%; margin: auto; text-align: center;">
+  <!-- <table class="table-strip" style="width: 70%; margin: auto; text-align: center;">
     <thead>
       <th>#</th>
       <th>Nama</th>
@@ -131,5 +147,71 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
+
+  <div class="box-baris">
+    <div class="box-kolom" style="width: 49.70%;">
+      <div class="card">
+        <div class="card-body" style="border-radius: 5px;">
+          <center>
+            <h2>Produk</h2><br>
+            <h3 style="color: #455757;">20</h3>
+          </center>
+        </div>
+      </div>
+    </div>
+
+    <div class="box-kolom" style="width: 49.70%;">
+      <div class="card">
+        <div class="card-body" style="border-radius: 5px;">
+          <center>
+            <h2>Kategori</h2><br>
+            <h3 style="color: #455757;">5</h3>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box-baris">
+    <div class="box-kolom">
+      <div class="card">
+        <div class="card-header" style="text-align: left;">Daftar Produk Terbaru</div>
+        <div class="card-body">
+          <table class="table-strip" style="width: 70%; margin: auto; text-align: center;">
+            <thead>
+              <th>#</th>
+              <th>Nama</th>
+              <th>Kategori</th>
+              <th>Harga</th>
+              <th>Aksi</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Item 1</td>
+                <td>Kat 1</td>
+                <td>Rp. 200.000</td>
+                <td>
+                  <button>Hapus</button>
+                  <button>Edit</button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Item 2</td>
+                <td>Kat 2</td>
+                <td>Rp. 500.000</td>
+                <td>
+                  <a class="btn-merah" href="#" style="font-size:medium;">Hapus</a>
+                  <a class="btn-biru" href="">Edit</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

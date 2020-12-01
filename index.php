@@ -36,27 +36,82 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
       <!-- </nav> -->
     </div>
 
-    <div class="main-content">
-      <h1>Dashboard</h1>
+    <div class="main-content" style="text-align: center;">
+
+      <h1 style="text-align: left;">Dashboard</h1>
       <hr class="garis-hor">
-      <div class='card'>
-        <h3 class='card-header'>
-          Dashboard
-        </h3>
-        <div class='card-body'>
-          <p><b>Konten Utama</b></p><br>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit nihil dolor perspiciatis tempore! Neque reiciendis quaerat officiis amet, exercitationem quae rerum repellendus provident inventore architecto illo, cupiditate nostrum odit dolores!
-            Nemo laborum eaque sed, possimus culpa suscipit accusantium adipisci distinctio deserunt unde libero excepturi quod rem? Deleniti explicabo itaque nostrum doloribus. Voluptate iusto libero odit facere quas voluptates tempora atque.
-            Dolores assumenda ipsa ex reiciendis laboriosam accusamus quibusdam molestias, ab autem, mollitia, fuga sed necessitatibus ipsam sit quo aliquam ut porro fugiat! Inventore, quasi reprehenderit quibusdam in placeat earum repellat!
-            Qui at aliquid velit illo, unde minus fugiat earum in id quidem quod recusandae similique? Consectetur debitis asperiores atque, id ducimus nostrum magni, itaque ullam, ipsam quisquam architecto incidunt facilis.
-            Nemo impedit obcaecati repellendus iusto, earum possimus, quasi odio placeat nulla explicabo neque. Doloremque quibusdam similique placeat exercitationem aspernatur provident doloribus sit numquam! Dolorem recusandae eos enim, ullam earum nisi.
-            Atque quas nobis doloribus quo quaerat ipsa veniam iure, natus porro culpa quos explicabo doloremque nesciunt in iste fugit molestias ad cum sint sapiente voluptates assumenda voluptatum. Accusamus, non veniam?
-            At, placeat provident voluptate excepturi incidunt consectetur. Consectetur excepturi labore possimus quidem amet officia quas corrupti nobis, veniam dolore, eos qui, illum maiores est! Pariatur maiores facere sunt voluptate quos!
-            Amet delectus voluptatum temporibus saepe deleniti? Illo doloremque quisquam voluptatibus harum consequatur quas molestias inventore maiores, vitae iste mollitia sed ut minima ipsum eveniet id, culpa nostrum temporibus commodi nihil?
-            Veniam, consectetur illo aperiam dolorum et commodi voluptas animi distinctio beatae esse debitis iste fuga quod voluptatem reprehenderit labore pariatur. Voluptatum quibusdam fugit nemo ex nam reiciendis vel voluptas iusto.
-            Est, fugit architecto doloribus optio commodi tenetur quos, minus sed perspiciatis nobis delectus consectetur modi nostrum, repellat fuga inventore? Cumque rerum omnis praesentium voluptatum, doloribus soluta voluptatem voluptates quis nihil.
-          </p>
+
+      <div class="box-baris">
+        <div class="box-kolom" style="width: 49.60%;">
+          <div class="card">
+            <div class="card-body" style="border-radius: 5px;">
+              <center>
+                <h2>Produk</h2><br>
+                <h3 style="color: #455757;">20</h3>
+              </center>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-kolom" style="width: 48.82%;">
+          <div class="card">
+            <div class="card-body" style="border-radius: 5px;">
+              <center>
+                <h2>Kategori</h2><br>
+                <h3 style="color: #455757;">5</h3>
+              </center>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="box-baris">
+        <div class="box-kolom">
+          <div class="card">
+            <div class="card-header" style="text-align: left;">Daftar Produk Terbaru</div>
+            <div class="card-body">
+              <div style="width: 98%; margin: auto;">
+
+                <?php
+                // Menyiapkan perintah query untuk menarik data dari database
+                $query = "SELECT * FROM tb_item JOIN tb_kategori ON tb_item.id_kat = tb_kategori.id_kat ORDER BY id_item DESC"; // Data yg ditarik berasal dari 2 tabel yang di Gabungkan/Join
+                // Eksekusi query untuk menarik data
+                $execQuery = mysqli_query($db, $query) or die('Eksekusi Perintah Query Gagal: ' . mysqli_error($db)); // Menampilkan pesan error jika query gagal dieksekusi
+                $no = 1; // Untuk No urutan pada table
+                ?>
+
+                <table class="table-strip" style="width: 100%; text-align: center;">
+                  <thead>
+                    <th>#</th>
+                    <th>Nama Produk</th>
+                    <th>Kategori</th>
+                    <th>Stok</th>
+                  </thead>
+                  <tbody>
+                    <!-- Cek jika data tersedia dalam database -->
+                    <?php if (mysqli_num_rows($execQuery) != 0) : ?>
+                      <!-- Menampilkan semua data yg ditarik dari database -->
+                      <?php while ($data = mysqli_fetch_assoc($execQuery)) : ?>
+                        <tr>
+                          <td><?php echo $no++; ?></td>
+                          <td><?php echo $data['nama_item']; ?></td>
+                          <td><?php echo $data['nama_kat']; ?></td>
+                          <td><?php echo $data['stok']; ?></td>
+                        </tr>
+                      <?php endwhile; ?>
+                    <?php else : ?>
+                      <!-- Menampilkan Tabel Kosong -->
+                      <tr>
+                        <td colspan="4">
+                          <center>Data Kosong!</center>
+                        </td>
+                      </tr>
+                    <?php endif ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
