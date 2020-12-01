@@ -1,6 +1,8 @@
 <?php
+// Memanggil file config
 include "../../config/config.php";
 
+// Digunakan untuk menentukan aktivasi menu pada nav menu
 $page = isset($_GET['page']) ? $_GET['page'] : false;
 ?>
 <!DOCTYPE html>

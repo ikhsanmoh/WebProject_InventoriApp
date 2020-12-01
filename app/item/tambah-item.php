@@ -1,6 +1,8 @@
 <?php
+// Memanggil file config
 include "../../config/config.php";
 
+// Digunakan untuk menentukan aktivasi menu pada nav menu
 $page = isset($_GET['page']) ? $_GET['page'] : false;
 ?>
 <!DOCTYPE html>
@@ -36,6 +38,13 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
 
     <div class="main-content">
 
+      <?php
+      // Menyiapkan printah query untuk menarik data kategori
+      $query = "SELECT * FROM tb_kategori";
+      // Eksekusi Query
+      $execQuery = mysqli_query($db, $query) or die('Terjadi kesalahan pada perintah query: ' . mysqli_error($db)); // Menampilkan pesan error jika eksekusi gagal
+      ?>
+
       <h1>Item</h1>
       <hr class="garis-hor">
       <div class='card' style="width: 70%; margin:auto;">
@@ -43,29 +52,32 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
           Tambah Item
         </h3>
         <div class='card-body'>
-          <form action="#">
+          <form action="proses-tambah-item.php" method="POST">
             <table class="table">
               <tr>
                 <td><label for="nm_item">Nama Barang</label></td>
-                <td><input type="text" name="nama_item" id="nm_item"></td>
+                <td><input type="text" name="nama_item" id="nm_item" required></td>
               </tr>
               <tr>
                 <td><label for="kat">Kategori</label></td>
                 <td>
-                  <select name="kategori_item" id="kat">
-                    <option value="">--Pilih--</option>
-                    <option value="">Opsi 1</option>
-                    <option value="">Opsi 2</option>
+                  <select name="kategori_item" id="kat" required>
+                    <option value="" selected>--Pilih--</option>
+                    <?php if (mysqli_num_rows($execQuery) != 0) : ?>
+                      <?php while ($data = mysqli_fetch_assoc($execQuery)) : ?>
+                        <option value="<?php echo $data['id_kat']; ?>"><?php echo $data['nama_kat']; ?></option>
+                      <?php endwhile; ?>
+                    <?php endif; ?>
                   </select>
                 </td>
               </tr>
               <tr>
                 <td><label for="hrg">Harga</label></td>
-                <td><input type="number" name="harga_item" id="hrg"></td>
+                <td><input type="number" name="harga_item" id="hrg" min="1" required></td>
               </tr>
               <tr>
                 <td><label for="jml">Jumlah</label></td>
-                <td><input type="number" name="jumlah_item" id="jml"></td>
+                <td><input type="number" name="jumlah_item" id="jml" min="1" max="999" required></td>
               </tr>
               <tr>
                 <td></td>

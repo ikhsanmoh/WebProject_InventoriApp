@@ -1,10 +1,11 @@
 <?php
+// Memanggil file config
 include "../../config/config.php";
 
 // Cek jika tombol simpan pada form edit kategori sudah di klik
 if (!isset($_POST['update_kategori'])) {
   // Kembali ke halaman form edit kategori
-  header('Location:' . BASE_URL . '/app/kategori/edit-kategori.php?page=kategori');
+  header('Location:' . BASE_URL . 'app/kategori/edit-kategori.php?page=kategori');
   die();
 }
 

@@ -1,4 +1,5 @@
 <?php
+// Memanggil file config
 include "../../config/config.php";
 ?>
 <!DOCTYPE html>

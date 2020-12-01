@@ -1,6 +1,8 @@
 <?php
+// Memanggil file config
 include "../../config/config.php";
 
+// Digunakan untuk menentukan aktivasi menu pada nav menu
 $page = isset($_GET['page']) ? $_GET['page'] : false;
 ?>
 <!DOCTYPE html>
@@ -36,6 +38,14 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
 
     <div class="main-content">
 
+      <?php
+      // Menyiapkan perintah query untuk menarik data dari database
+      $query = "SELECT * FROM tb_item JOIN tb_kategori ON tb_item.id_kat = tb_kategori.id_kat"; // Data yg ditarik berasal dari 2 tabel yang di Gabungkan/Join
+      // Eksekusi query untuk menarik data
+      $execQuery = mysqli_query($db, $query) or die('Eksekusi Perintah Query Gagal: ' . mysqli_error($db)); // Menampilkan pesan error jika query gagal dieksekusi
+      $no = 1; // Untuk No urutan pada table
+      ?>
+
       <h1>Item</h1>
       <hr class="garis-hor">
       <div class='card'>
@@ -54,26 +64,29 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                 <th>Aksi</th>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Produk 1</td>
-                  <td>Kat 1</td>
-                  <td>Rp. 200.000</td>
-                  <td style="font-size: 0.8rem;">
-                    <a class="btn-merah" href="<?php echo BASE_URL . "app/item/tambah-item.php"; ?>">Hapus</a>
-                    <a class="btn-biru" href="<?php echo BASE_URL . "app/item/edit-item.php?page=item"; ?>">Edit</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Produk 2</td>
-                  <td>Kat 2</td>
-                  <td>Rp. 500.000</td>
-                  <td style="font-size: 0.8rem;">
-                    <a class="btn-merah" href="<?php echo BASE_URL . "app/item/tambah-item.php?page=item"; ?>">Hapus</a>
-                    <a class="btn-biru" href="<?php echo BASE_URL . "app/item/edit-item.php?page=item"; ?>">Edit</a>
-                  </td>
-                </tr>
+                <!-- Cek jika data tersedia dalam database -->
+                <?php if (mysqli_num_rows($execQuery) != 0) : ?>
+                  <!-- Menampilkan semua data yg ditarik dari database -->
+                  <?php while ($data = mysqli_fetch_assoc($execQuery)) : ?>
+                    <tr>
+                      <td><?php echo $no++; ?></td>
+                      <td><?php echo $data['nama_item']; ?></td>
+                      <td><?php echo $data['nama_kat']; ?></td>
+                      <td><?php echo $data['harga']; ?></td>
+                      <td style="font-size: 0.8rem;">
+                        <a class="btn-merah" href="<?php echo BASE_URL . "app/item/proses-hapus-item.php?id_item=$data[id_item]"; ?>">Hapus</a>
+                        <a class="btn-biru" href="<?php echo BASE_URL . "app/item/edit-item.php?page=item&id_item=$data[id_item]"; ?>">Edit</a>
+                      </td>
+                    </tr>
+                  <?php endwhile; ?>
+                <?php else : ?>
+                  <!-- Menampilkan Tabel Kosong -->
+                  <tr>
+                    <td colspan="5">
+                      <center>Data Kosong!</center>
+                    </td>
+                  </tr>
+                <?php endif ?>
               </tbody>
             </table>
           </div>

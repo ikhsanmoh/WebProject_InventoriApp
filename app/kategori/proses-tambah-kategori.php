@@ -1,10 +1,11 @@
 <?php
+// Memanggil file config
 include "../../config/config.php";
 
 // Cek jika tombol simpan pada form tambah kategori sudah di klik
 if (!isset($_POST['tambah_kategori'])) {
   // Kembali ke halaman form tambah kategori
-  header('Location:' . BASE_URL . '/app/kategori/tambah-kategori.php?page=kategori');
+  header('Location:' . BASE_URL . 'app/kategori/tambah-kategori.php?page=kategori');
   die();
 }
 

@@ -1,4 +1,5 @@
 <?php
+// Memanggil file config
 include "../../config/config.php";
 
 // Cek id kategori yg akan diedit 
@@ -8,9 +9,9 @@ if (!isset($_GET['id_kat'])) {
   die();
 }
 
-// digunakan untuk menentukan aktivasi menu pada nav menu
+// Digunakan untuk menentukan aktivasi menu pada nav menu
 $page = isset($_GET['page']) ? $_GET['page'] : false;
-// menyimpan id_kat kedalam variabel
+// Menyimpan id_kat kedalam variabel
 $id_kat = $_GET['id_kat'];
 
 ?>
@@ -76,7 +77,7 @@ $id_kat = $_GET['id_kat'];
             <table class="table">
               <tr>
                 <td><label for="nm_kat">Nama Kategori</label></td>
-                <td><input type="text" name="nama_kategori" id="nm_kat" value="<?php echo $data['nama_kat']; ?>"></td>
+                <td><input type="text" name="nama_kategori" id="nm_kat" value="<?php echo $data['nama_kat']; ?>" required></td>
               </tr>
               <tr>
                 <td><label for="desk">Deskripsi</label></td>

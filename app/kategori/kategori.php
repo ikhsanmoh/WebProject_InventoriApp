@@ -1,6 +1,8 @@
 <?php
+// Memanggil file config
 include "../../config/config.php";
 
+// Digunakan untuk menentukan aktivasi menu pada nav menu
 $page = isset($_GET['page']) ? $_GET['page'] : false;
 ?>
 <!DOCTYPE html>
@@ -61,18 +63,28 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                 <th>Aksi</th>
               </thead>
               <tbody>
-                <!-- Menampilkan semua data yg ditarik dari database -->
-                <?php while ($data = mysqli_fetch_assoc($execQuery)) : ?>
+                <!-- Cek jika data tersedia dalam database -->
+                <?php if (mysqli_num_rows($execQuery) != 0) : ?>
+                  <!-- Menampilkan semua data yg ditarik dari database -->
+                  <?php while ($data = mysqli_fetch_assoc($execQuery)) : ?>
+                    <tr>
+                      <td><?php echo $no++; ?></td>
+                      <td><?php echo $data['nama_kat']; ?></td>
+                      <td><?php echo $data['deskripsi_kat']; ?></td>
+                      <td style="font-size: 0.8rem;">
+                        <a class="btn-merah" href="<?php echo BASE_URL . "app/kategori/proses-hapus-kategori.php?id_kat=$data[id_kat]"; ?>">Hapus</a>
+                        <a class="btn-biru" href="<?php echo BASE_URL . "app/kategori/edit-kategori.php?page=kategori&id_kat=$data[id_kat]"; ?>">Edit</a>
+                      </td>
+                    </tr>
+                  <?php endwhile; ?>
+                <?php else : ?>
+                  <!-- Menampilkan Tabel Kosong -->
                   <tr>
-                    <td><?php echo $no++; ?></td>
-                    <td><?php echo $data['nama_kat']; ?></td>
-                    <td><?php echo $data['deskripsi_kat']; ?></td>
-                    <td style="font-size: 0.8rem;">
-                      <a class="btn-merah" href="<?php echo BASE_URL . "app/kategori/proses-hapus-kategori.php?id_kat=$data[id_kat]"; ?>">Hapus</a>
-                      <a class="btn-biru" href="<?php echo BASE_URL . "app/kategori/edit-kategori.php?page=kategori&id_kat=$data[id_kat]"; ?>">Edit</a>
+                    <td colspan="4">
+                      <center>Data Kosong!</center>
                     </td>
                   </tr>
-                <?php endwhile; ?>
+                <?php endif ?>
               </tbody>
             </table>
           </div>
