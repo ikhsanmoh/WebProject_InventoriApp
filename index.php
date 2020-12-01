@@ -58,13 +58,32 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
       <h1 style="text-align: left;">Dashboard</h1>
       <hr class="garis-hor">
 
+      <?php
+      // Menyiapkan perintah query untuk menarik data dari database
+      $queryHitungProduk = "SELECT COUNT(nama_item) AS jml FROM tb_item";
+      // Eksekusi query untuk menarik data
+      $execQuery = mysqli_query($db, $queryHitungProduk) or die('Eksekusi Perintah Query Gagal: ' . mysqli_error($db)); // Menampilkan pesan error jika query gagal dieksekusi
+      // Menarik hasil data dari eksekusi query
+      $JumlahProduk = mysqli_fetch_assoc($execQuery);
+
+      // Menyiapkan perintah query untuk menarik data dari database
+      $queryHitungKategori = "SELECT COUNT(nama_kat) AS jml FROM tb_kategori";
+      // Eksekusi query untuk menarik data
+      $execQuery = mysqli_query($db, $queryHitungKategori) or die('Eksekusi Perintah Query Gagal: ' . mysqli_error($db)); // Menampilkan pesan error jika query gagal dieksekusi
+      // Menarik hasil data dari eksekusi query
+      $JumlahKategori = mysqli_fetch_assoc($execQuery);
+      ?>
+
       <div class="box-baris">
         <div class="box-kolom" style="width: 49.60%;">
           <div class="card">
             <div class="card-body" style="border-radius: 5px;">
               <center>
                 <h2>Produk</h2><br>
-                <h3 style="color: #455757;">20</h3>
+                <h3 style="color: #455757;">
+                  <!-- Jika data yang ditarik kosong maka print/tampilkan 0 -->
+                  <?php echo (!empty($JumlahProduk['jml'])) ? $JumlahProduk['jml'] : '0'; ?>
+                </h3>
               </center>
             </div>
           </div>
@@ -75,7 +94,10 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
             <div class="card-body" style="border-radius: 5px;">
               <center>
                 <h2>Kategori</h2><br>
-                <h3 style="color: #455757;">5</h3>
+                <h3 style="color: #455757;">
+                  <!-- Jika data yang ditarik kosong maka print/tampilkan 0 -->
+                  <?php echo (!empty($JumlahKategori['jml'])) ? $JumlahKategori['jml'] : '0'; ?>
+                </h3>
               </center>
             </div>
           </div>
@@ -91,9 +113,9 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
 
                 <?php
                 // Menyiapkan perintah query untuk menarik data dari database
-                $query = "SELECT * FROM tb_item JOIN tb_kategori ON tb_item.id_kat = tb_kategori.id_kat ORDER BY id_item DESC"; // Data yg ditarik berasal dari 2 tabel yang di Gabungkan/Join
+                $queryBaru = "SELECT * FROM tb_item JOIN tb_kategori ON tb_item.id_kat = tb_kategori.id_kat ORDER BY id_item DESC"; // Data yg ditarik berasal dari 2 tabel yang di Gabungkan/Join
                 // Eksekusi query untuk menarik data
-                $execQuery = mysqli_query($db, $query) or die('Eksekusi Perintah Query Gagal: ' . mysqli_error($db)); // Menampilkan pesan error jika query gagal dieksekusi
+                $execQuery = mysqli_query($db, $queryBaru) or die('Eksekusi Perintah Query Gagal: ' . mysqli_error($db)); // Menampilkan pesan error jika query gagal dieksekusi
                 $no = 1; // Untuk No urutan pada table
                 ?>
 
