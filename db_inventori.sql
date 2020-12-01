@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 01 Des 2020 pada 13.49
+-- Waktu pembuatan: 01 Des 2020 pada 15.16
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.1
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `tb_item` (
   `id_item` int(11) NOT NULL,
   `nama_item` varchar(100) NOT NULL,
-  `id_kat` int(11) NOT NULL,
+  `id_kat` int(11) DEFAULT NULL,
   `harga` int(9) NOT NULL,
   `stok` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -42,7 +42,8 @@ CREATE TABLE `tb_item` (
 
 INSERT INTO `tb_item` (`id_item`, `nama_item`, `id_kat`, `harga`, `stok`) VALUES
 (1, 'MSI 2PL', 1, 12000000, 10),
-(3, 'RAM Cursial DDR3 4GB', 2, 1600000, 25);
+(3, 'RAM Cursial DDR3 4GB', 2, 1600000, 25),
+(5, 'Hardisk Toshiba 500GB', 6, 55000, 1);
 
 -- --------------------------------------------------------
 
@@ -62,7 +63,8 @@ CREATE TABLE `tb_kategori` (
 
 INSERT INTO `tb_kategori` (`id_kat`, `nama_kat`, `deskripsi_kat`) VALUES
 (1, 'Laptop', 'Kategori mencakup berbagai macam tipe seperti Notebook, Ultrabook, Gaming Laptop dll.'),
-(2, 'Komponen PC', 'Kategori mencakup RAM, VGA Card, Fan dll.');
+(2, 'Komponen PC', 'Kategori mencakup RAM, VGA Card, Fan dll.'),
+(6, 'Hardsik', '-');
 
 -- --------------------------------------------------------
 
@@ -115,13 +117,13 @@ ALTER TABLE `tb_users`
 -- AUTO_INCREMENT untuk tabel `tb_item`
 --
 ALTER TABLE `tb_item`
-  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_kategori`
 --
 ALTER TABLE `tb_kategori`
-  MODIFY `id_kat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_kat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_users`
@@ -137,7 +139,7 @@ ALTER TABLE `tb_users`
 -- Ketidakleluasaan untuk tabel `tb_item`
 --
 ALTER TABLE `tb_item`
-  ADD CONSTRAINT `kategori_link` FOREIGN KEY (`id_kat`) REFERENCES `tb_kategori` (`id_kat`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `kategori_link` FOREIGN KEY (`id_kat`) REFERENCES `tb_kategori` (`id_kat`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
