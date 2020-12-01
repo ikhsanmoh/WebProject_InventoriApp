@@ -57,7 +57,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
 
       <?php
       // Menyiapkan perintah query untuk menarik data dari database
-      $query = "SELECT * FROM tb_item JOIN tb_kategori ON tb_item.id_kat = tb_kategori.id_kat"; // Data yg ditarik berasal dari 2 tabel yang di Gabungkan/Join
+      $query = "SELECT * FROM tb_item LEFT JOIN tb_kategori ON tb_item.id_kat = tb_kategori.id_kat"; // Data yg ditarik berasal dari 2 tabel yang di Gabungkan/Join
       // Eksekusi query untuk menarik data
       $execQuery = mysqli_query($db, $query) or die('Eksekusi Perintah Query Gagal: ' . mysqli_error($db)); // Menampilkan pesan error jika query gagal dieksekusi
       $no = 1; // Untuk No urutan pada table
@@ -88,7 +88,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                     <tr>
                       <td><?php echo $no++; ?></td>
                       <td><?php echo $data['nama_item']; ?></td>
-                      <td><?php echo $data['nama_kat']; ?></td>
+                      <td><?php echo !empty($data['nama_kat']) ? $data['nama_kat'] : '-'; ?></td>
                       <td><?php echo $data['harga']; ?></td>
                       <td style="font-size: 0.8rem;">
                         <a class="btn-merah" href="<?php echo BASE_URL . "app/item/proses-hapus-item.php?id_item=$data[id_item]"; ?>">Hapus</a>
