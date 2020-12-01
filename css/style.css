@@ -148,7 +148,7 @@ a {
 
 .card-login {
   color: white;
-  width: 300px;
+  width: fit-content;
   padding: 40px;
   position: absolute;
   top: 50%;
@@ -163,6 +163,12 @@ a {
 .card-login-act {
   margin-top: 30px;
   float: right;
+}
+
+.card-login-pesan {
+  margin-top: 80px;
+  text-align: center;
+  color: #ff3333;
 }
 
 .garis-hor {
@@ -181,10 +187,11 @@ a {
   padding: 10px;
 }
 
-.table tr td input[type="text"],
-input[type="number"],
-select,
-textarea {
+.table input[type="text"],
+.table input[type="number"],
+.table input[type="password"],
+.table select,
+.table textarea {
   width: 100%;
   padding: 5px;
 }

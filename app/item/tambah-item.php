@@ -2,6 +2,16 @@
 // Memanggil file config
 include "../../config/config.php";
 
+// Cek jika sudah login
+if (!isset($_SESSION['username'])) {
+  // Mengarahkan User ke halaman login
+  header('Location: ' . BASE_URL . 'app/auth/login.php');
+  die();
+}
+
+// Menyimpan Nama User kedalam variabel
+$nama_user = $_SESSION['nama_user'];
+
 // Digunakan untuk menentukan aktivasi menu pada nav menu
 $page = isset($_GET['page']) ? $_GET['page'] : false;
 ?>
@@ -31,7 +41,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
         <li class="<?php echo $page == 'kategori' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/kategori/kategori.php?page=kategori"; ?>">kategori</a></li>
         <li class="<?php echo $page == 'item' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/item/item.php?page=item"; ?>">Item</a></li>
         <li class="<?php echo $page == 'stok' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/stok/stok.php?page=stok"; ?>">Stok</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="<?php echo BASE_URL . 'app/auth/proses-logout.php?logout=1'; ?>">Logout</a></li>
       </ul>
       <!-- </nav> -->
     </div>

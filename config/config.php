@@ -14,3 +14,9 @@ $db = new mysqli($host, $user, $pass, $dbname);
 if (!$db) {
   die("Gagal Terhubung Dengan Database" . mysqli_connect_error());
 }
+
+// Cek jika session sudah berjalan
+if (!isset($_SESSION)) {
+  // Menjalankan Session
+  session_start();
+}
