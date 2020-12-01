@@ -1,4 +1,4 @@
-/* Layout Style */
+/* Desain Layout */
 * {
   padding: 0;
   margin: 0;
@@ -13,29 +13,21 @@ html, body {
 }
 
 .container {
-  /* background-color: lightgray; */
-  /* background-color: inherit; */
   height: 100%;
   padding: 0;
   margin: 0;
 }
 
 .header {
-  /* background-color: #333a23; */
   background-color: #262626;
   color: white;
-  /* font-weight: 900; */
   padding: 15px 25px;
   height: 30px;
-  /* width: 100%; */
-  /* text-align: center; */
 }
 
 .sidebar {
-  /* background-color: lightslategrey; */
   background-color: #404040;
   margin: 0;
-  /* padding: 10px 10px; */
   width: 20%;
   height: 100%;
   float: left;
@@ -43,7 +35,6 @@ html, body {
 }
 
 .user-panel {
-  /* background-color: lightskyblue; */
   background-color: #404040;
   border-top: #666666 solid 2px;
   border-bottom: #666666 solid 2px;
@@ -53,19 +44,9 @@ html, body {
   color: lightgray;
 }
 
-/* Deleted */
-/* .navbar {
-  background-color: lightskyblue;
-  padding: 10px 10px;
-} */
-
 .main-content {
-  /* background-color: #0c215a; */
-  /* background-color: inherit; */
-  /* background-color: #f6f4f4; */
   color: #4d4d4d;
   margin: 0;
-  /* margin-bottom: 0px; */
   padding: 20px;
   height: 100%;
   overflow: hidden;
@@ -78,19 +59,17 @@ html, body {
   left: 0;
   bottom: 0;
   width: 100%;
-  /* background-color: #333a23; */
   background-color: #262626;
   color: white;
   text-align: center;
 }
 
-/* Komponen Style */
+/* Desain Nav List dan Link */
 ul {
   list-style-type: none;
   margin: 0; 
   padding: 0; 
   overflow: hidden; 
-  /* background-color: green; */
   background-color: #404040;
 }
 
@@ -99,11 +78,8 @@ a {
 }
 
 .sidebar ul li a{
-  /* color: #323538;
-  display: block; */
   display: block; 
   color: white; 
-  /* text-align: center;  */
   padding: 15px 25px; 
   text-decoration: none;
   font-weight: bold;
@@ -115,7 +91,6 @@ a {
 }
 
 .sidebar ul li:hover {
-  /* background-color: lightgreen;  */
   background-color: #333333;
   color: lightgray;
 }
@@ -126,11 +101,10 @@ a {
   border-left: 2px solid;
 }
 
-/* Partials */
+/* Desain Box/Kartu */
 .card {
   background-color: #e6e6e6;
   color: darkslategray;
-  /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
   border-radius: 5px;
 }
 
@@ -171,13 +145,7 @@ a {
   color: #ff3333;
 }
 
-.garis-hor {
-  height: 2px; 
-  background-color: #737373; 
-  margin-top:10px; 
-  margin-bottom:30px
-}
-
+/* Desain Tabel */
 .table {
   margin: auto;
   width: 500px;
@@ -205,6 +173,7 @@ a {
   background-color: whitesmoke;
 }
 
+/* Desain Tombol */
 .btn-putih {
   padding: 7px 15px;
   border-radius: 2px;
@@ -252,13 +221,18 @@ a {
 .box-baris {
   margin: 5px;
   margin-bottom: 10px;
-  /* text-align: center; */
 }
 
 .box-kolom {
   width: 100%;
   display: inline-block;
   margin-bottom: 20px;
-  /* margin: auto; */
-  /* float: left; */
+}
+
+/* Desain tambahan */
+.garis-hor {
+  height: 2px; 
+  background-color: #737373; 
+  margin-top:10px; 
+  margin-bottom:30px
 }

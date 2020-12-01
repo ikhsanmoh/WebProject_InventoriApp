@@ -37,8 +37,10 @@ if (isset($_SESSION['username'])) {
         <input class="btn-putih" type="reset" value="Reset" name="reset">
         <input class="btn-biru" type="submit" value="Login" name="login">
       </div>
+      <!-- Cek jika variabel status pada url tersedia -->
       <?php if (isset($_GET['status'])) : ?>
         <div class="card-login-pesan">
+          <!-- Cek isi dari var status -->
           <?php if ($_GET['status'] == 'err_usernm') : ?>
             Username Salah!
           <?php elseif ($_GET['status'] == 'err_pass') : ?>

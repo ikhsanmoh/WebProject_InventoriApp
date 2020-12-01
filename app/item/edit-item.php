@@ -45,7 +45,6 @@ $id_item = $_GET['id_item'];
       <div class="user-panel">
         User
       </div>
-      <!-- <nav class="navbar"> -->
       <ul>
         <li class="<?php echo !$page ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "index.php"; ?>">Dasboard</a></li>
         <li class="<?php echo $page == 'kategori' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/kategori/kategori.php?page=kategori"; ?>">kategori</a></li>
@@ -53,7 +52,6 @@ $id_item = $_GET['id_item'];
         <li class="<?php echo $page == 'stok' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/stok/stok.php?page=stok"; ?>">Stok</a></li>
         <li><a href="<?php echo BASE_URL . 'app/auth/proses-logout.php?logout=1'; ?>">Logout</a></li>
       </ul>
-      <!-- </nav> -->
     </div>
 
     <div class="main-content">
@@ -97,7 +95,9 @@ $id_item = $_GET['id_item'];
                 <td>
                   <select name="kategori_item" id="kat" required>
                     <option value="">--Pilih--</option>
+                    <!-- Cek jika data kategori tersedia dalam database -->
                     <?php if (mysqli_num_rows($execQueryKategori) != 0) : ?>
+                      <!-- Menarik semua data kategori -->
                       <?php while ($dataKategori = mysqli_fetch_assoc($execQueryKategori)) : ?>
                         <option value="<?php echo $dataKategori['id_kat']; ?>"><?php echo $dataKategori['nama_kat']; ?></option>
                       <?php endwhile; ?>

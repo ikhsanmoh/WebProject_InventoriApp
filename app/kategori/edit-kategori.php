@@ -45,7 +45,6 @@ $id_kat = $_GET['id_kat'];
       <div class="user-panel">
         User
       </div>
-      <!-- <nav class="navbar"> -->
       <ul>
         <li class="<?php echo !$page ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "index.php"; ?>">Dasboard</a></li>
         <li class="<?php echo $page == 'kategori' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/kategori/kategori.php?page=kategori"; ?>">Kategori</a></li>
@@ -53,7 +52,6 @@ $id_kat = $_GET['id_kat'];
         <li class="<?php echo $page == 'stok' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/stok/stok.php?page=stok"; ?>">Stok</a></li>
         <li><a href="<?php echo BASE_URL . 'app/auth/proses-logout.php?logout=1'; ?>">Logout</a></li>
       </ul>
-      <!-- </nav> -->
     </div>
 
     <div class="main-content">
