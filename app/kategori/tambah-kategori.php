@@ -43,11 +43,11 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
           Tambah Kategori
         </h3>
         <div class='card-body'>
-          <form action="#">
+          <form action="proses-tambah-kategori.php" method="POST">
             <table class="table">
               <tr>
                 <td><label for="nm_kat">Nama Kategori</label></td>
-                <td><input type="text" name="nama_kategori" id="nm_kat"></td>
+                <td><input type="text" name="nama_kategori" id="nm_kat" required></td>
               </tr>
               <tr>
                 <td><label for="desk">Deskripsi</label></td>
@@ -57,7 +57,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                 <td></td>
                 <td style="text-align: right;">
                   <a class="btn-merah" style="font-size: 0.85rem;" href="<?php echo BASE_URL . "app/kategori/kategori.php?page=kategori"; ?>">Batal</a>
-                  <input class="btn-biru" type="submit" value="Simpan">
+                  <input class="btn-biru" type="submit" name="tambah_kategori" value="Simpan">
                 </td>
               </tr>
             </table>

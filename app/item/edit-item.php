@@ -47,13 +47,13 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
             <input type="hidden" name="id_item">
             <table class="table">
               <tr>
-                <td><label for="">Nama Barang</label></td>
-                <td><input type="text" name="" id=""></td>
+                <td><label for="nm">Nama Barang</label></td>
+                <td><input type="text" name="nama_item" id="nm"></td>
               </tr>
               <tr>
-                <td><label for="">Kategori</label></td>
+                <td><label for="kat">Kategori</label></td>
                 <td>
-                  <select name="" id="">
+                  <select name="kategori_item" id="kat">
                     <option value="">--Pilih--</option>
                     <option value="">Opsi 1</option>
                     <option value="">Opsi 2</option>
@@ -61,14 +61,14 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                 </td>
               </tr>
               <tr>
-                <td><label for="">Harga</label></td>
-                <td><input type="number" name="" id=""></td>
+                <td><label for="hrg">Harga</label></td>
+                <td><input type="number" name="harga_item" id="hrg"></td>
               </tr>
               <tr>
                 <td></td>
                 <td style="text-align: right;">
                   <a class="btn-merah" style="font-size: 0.85rem;" href="<?php echo BASE_URL . "app/item/item.php?page=item"; ?>">Batal</a>
-                  <input class="btn-biru" type="submit" value="Simpan">
+                  <input class="btn-biru" type="submit" name="update_item" value="Simpan">
                 </td>
               </tr>
             </table>

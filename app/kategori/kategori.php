@@ -36,6 +36,14 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
 
     <div class="main-content">
 
+      <?php
+      // Menyiapkan perintah query untuk menarik data dari database
+      $query = "SELECT * FROM tb_kategori";
+      // Eksekusi query untuk menarik data
+      $execQuery = mysqli_query($db, $query) or die('Eksekusi Perintah Query Gagal: ' . mysqli_error($db)); // Menampilkan pesan error jika query gagal dieksekusi
+      $no = 1; // Untuk No urutan pada table
+      ?>
+
       <h1>Kategori</h1>
       <hr class="garis-hor">
       <div class='card'>
@@ -53,24 +61,18 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                 <th>Aksi</th>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Kategori 1</td>
-                  <td>Ini adalah Kategori satu</td>
-                  <td style="font-size: 0.8rem;">
-                    <a class="btn-merah" href="<?php echo BASE_URL . "app/kategori/hapus-kategori.php"; ?>">Hapus</a>
-                    <a class="btn-biru" href="<?php echo BASE_URL . "app/kategori/edit-kategori.php?page=kategori"; ?>">Edit</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Kategori 2</td>
-                  <td>Ini adalah Kategori 2</td>
-                  <td style="font-size: 0.8rem;">
-                    <a class="btn-merah" href="<?php echo BASE_URL . "app/kategori/hapus-kategori.php"; ?>">Hapus</a>
-                    <a class="btn-biru" href="<?php echo BASE_URL . "app/kategori/edit-kategori.php?page=kategori"; ?>">Edit</a>
-                  </td>
-                </tr>
+                <!-- Menampilkan semua data yg ditarik dari database -->
+                <?php while ($data = mysqli_fetch_assoc($execQuery)) : ?>
+                  <tr>
+                    <td><?php echo $no++; ?></td>
+                    <td><?php echo $data['nama_kat']; ?></td>
+                    <td><?php echo $data['deskripsi_kat']; ?></td>
+                    <td style="font-size: 0.8rem;">
+                      <a class="btn-merah" href="<?php echo BASE_URL . "app/kategori/proses-hapus-kategori.php?id_kat=$data[id_kat]"; ?>">Hapus</a>
+                      <a class="btn-biru" href="<?php echo BASE_URL . "app/kategori/edit-kategori.php?page=kategori&id_kat=$data[id_kat]"; ?>">Edit</a>
+                    </td>
+                  </tr>
+                <?php endwhile; ?>
               </tbody>
             </table>
           </div>

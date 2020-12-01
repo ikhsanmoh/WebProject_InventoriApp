@@ -1,7 +1,18 @@
 <?php
 include "../../config/config.php";
 
+// Cek id kategori yg akan diedit 
+if (!isset($_GET['id_kat'])) {
+  // Kembali ke halaman Kategori
+  header('Location: ' . BASE_URL . 'app/kategori/kategori.php?page=kategori');
+  die();
+}
+
+// digunakan untuk menentukan aktivasi menu pada nav menu
 $page = isset($_GET['page']) ? $_GET['page'] : false;
+// menyimpan id_kat kedalam variabel
+$id_kat = $_GET['id_kat'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +47,23 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
 
     <div class="main-content">
 
+      <?php
+      // Menyiapkan perintah query untuk menarik data kategori yg akan diedit dari database
+      $query = "SELECT * FROM tb_kategori WHERE id_kat = '$id_kat'";
+      // Eksekusi query
+      $execQuery = mysqli_query($db, $query) or die('Terjadi kesalahan pada Query: ' . mysqli_error($db));
+
+      // Cek jika id kategori yang akan diedit tersedia dalam database
+      if (mysqli_num_rows($execQuery) == 0) {
+        // Kembali ke halaman Kategori
+        header('Location: ' . BASE_URL . 'app/kategori/kategori.php?page=kategori');
+        die();
+      }
+
+      // Menarik data hasil Eksekusi Query
+      $data = mysqli_fetch_assoc($execQuery);
+      ?>
+
       <h1>Kategori</h1>
       <hr class="garis-hor">
       <div class='card' style="width: 70%; margin:auto;">
@@ -43,22 +71,22 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
           Edit Kategori
         </h3>
         <div class='card-body'>
-          <form action="#">
-            <input type="hidden" name="id_kategori" value="">
+          <form action="proses-update-kategori.php" method="POST">
+            <input type="hidden" name="id_kategori" value="<?php echo $id_kat; ?>">
             <table class="table">
               <tr>
                 <td><label for="nm_kat">Nama Kategori</label></td>
-                <td><input type="text" name="nama_kategori" id="nm_kat"></td>
+                <td><input type="text" name="nama_kategori" id="nm_kat" value="<?php echo $data['nama_kat']; ?>"></td>
               </tr>
               <tr>
                 <td><label for="desk">Deskripsi</label></td>
-                <td><textarea name="deskripsi_kategori" id="desk" cols="10" rows="5"></textarea></td>
+                <td><textarea name="deskripsi_kategori" id="desk" cols="10" rows="5"><?php echo $data['deskripsi_kat']; ?></textarea></td>
               </tr>
               <tr>
                 <td></td>
                 <td style="text-align: right;">
                   <a class="btn-merah" style="font-size: 0.85rem;" href="<?php echo BASE_URL . "app/kategori/kategori.php?page=kategori"; ?>">Batal</a>
-                  <input class="btn-biru" type="submit" value="Simpan">
+                  <input class="btn-biru" type="submit" name="update_kategori" value="Simpan">
                 </td>
               </tr>
             </table>
