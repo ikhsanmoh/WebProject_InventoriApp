@@ -113,7 +113,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
 
                 <?php
                 // Menyiapkan perintah query untuk menarik data dari database
-                $queryBaru = "SELECT * FROM tb_item JOIN tb_kategori ON tb_item.id_kat = tb_kategori.id_kat ORDER BY id_item DESC"; // Data yg ditarik berasal dari 2 tabel yang di Gabungkan/Join
+                $queryBaru = "SELECT * FROM tb_item LEFT JOIN tb_kategori ON tb_item.id_kat = tb_kategori.id_kat ORDER BY id_item DESC LIMIT 3"; // Data yg ditarik berasal dari 2 tabel yang di Gabungkan/Join
                 // Eksekusi query untuk menarik data
                 $execQuery = mysqli_query($db, $queryBaru) or die('Eksekusi Perintah Query Gagal: ' . mysqli_error($db)); // Menampilkan pesan error jika query gagal dieksekusi
                 $no = 1; // Untuk No urutan pada table
@@ -134,7 +134,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                         <tr>
                           <td><?php echo $no++; ?></td>
                           <td><?php echo $data['nama_item']; ?></td>
-                          <td><?php echo $data['nama_kat']; ?></td>
+                          <td><?php echo !empty($data['nama_kat']) ? $data['nama_kat'] : '-'; ?></td>
                           <td><?php echo $data['stok']; ?></td>
                         </tr>
                       <?php endwhile; ?>
