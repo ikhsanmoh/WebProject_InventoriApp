@@ -33,9 +33,17 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
     </div>
     <div class="sidebar">
       <div class="user-panel">
-        User
+        <?php
+        // Cek jika nama user tersedia
+        if (isset($nama_user)) {
+          // Menampilkan Nama User
+          echo $nama_user;
+        } else {
+          // Menampilkan Text Default
+          echo 'User';
+        }
+        ?>
       </div>
-      <!-- <nav class="navbar"> -->
       <ul>
         <li class="<?php echo !$page ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "index.php"; ?>">Dasboard</a></li>
         <li class="<?php echo $page == 'kategori' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/kategori/kategori.php?page=kategori"; ?>">Kategori</a></li>
@@ -43,7 +51,6 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
         <li class="<?php echo $page == 'stok' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/stok/stok.php?page=stok"; ?>">Stok</a></li>
         <li><a href="<?php echo BASE_URL . 'app/auth/proses-logout.php?logout=1'; ?>">Logout</a></li>
       </ul>
-      <!-- </nav> -->
     </div>
 
     <div class="main-content" style="text-align: center;">

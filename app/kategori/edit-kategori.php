@@ -43,7 +43,16 @@ $id_kat = $_GET['id_kat'];
     </div>
     <div class="sidebar">
       <div class="user-panel">
-        User
+        <?php
+        // Cek jika nama user tersedia
+        if (isset($nama_user)) {
+          // Menampilkan Nama User
+          echo $nama_user;
+        } else {
+          // Menampilkan Text Default
+          echo 'User';
+        }
+        ?>
       </div>
       <ul>
         <li class="<?php echo !$page ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "index.php"; ?>">Dasboard</a></li>
