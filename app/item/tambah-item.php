@@ -31,86 +31,89 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
     <div class="header">
       <h3>InventoriApp</h3>
     </div>
-    <div class="sidebar">
-      <div class="user-panel">
-        <?php
-        // Cek jika nama user tersedia
-        if (isset($nama_user)) {
-          // Menampilkan Nama User
-          echo $nama_user;
-        } else {
-          // Menampilkan Text Default
-          echo 'User';
-        }
-        ?>
-      </div>
-      <ul>
-        <li class="<?php echo !$page ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "index.php"; ?>">Dasboard</a></li>
-        <li class="<?php echo $page == 'kategori' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/kategori/kategori.php?page=kategori"; ?>">kategori</a></li>
-        <li class="<?php echo $page == 'item' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/item/item.php?page=item"; ?>">Item</a></li>
-        <li class="<?php echo $page == 'stok' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/stok/stok.php?page=stok"; ?>">Stok</a></li>
-        <li><a href="<?php echo BASE_URL . 'app/auth/proses-logout.php?logout=1'; ?>">Logout</a></li>
-      </ul>
-    </div>
 
-    <div class="main-content">
-
-      <?php
-      // Menyiapkan printah query untuk menarik data kategori
-      $query = "SELECT * FROM tb_kategori";
-      // Eksekusi Query
-      $execQuery = mysqli_query($db, $query) or die('Terjadi kesalahan pada perintah query: ' . mysqli_error($db)); // Menampilkan pesan error jika eksekusi gagal
-      ?>
-
-      <h1>Item</h1>
-      <hr class="garis-hor">
-      <div class='card' style="width: 70%; margin:auto;">
-        <h3 class='card-header'>
-          Tambah Item
-        </h3>
-        <div class='card-body'>
-          <form action="proses-tambah-item.php" method="POST">
-            <table class="table">
-              <tr>
-                <td><label for="nm_item">Nama Barang</label></td>
-                <td><input type="text" name="nama_item" id="nm_item" required></td>
-              </tr>
-              <tr>
-                <td><label for="kat">Kategori</label></td>
-                <td>
-                  <select name="kategori_item" id="kat" required>
-                    <option value="" selected>--Pilih--</option>
-                    <!-- Cek jika  data kategori tersedia dalam database -->
-                    <?php if (mysqli_num_rows($execQuery) != 0) : ?>
-                      <!-- Menarik semua data kategori -->
-                      <?php while ($data = mysqli_fetch_assoc($execQuery)) : ?>
-                        <option value="<?php echo $data['id_kat']; ?>"><?php echo $data['nama_kat']; ?></option>
-                      <?php endwhile; ?>
-                    <?php endif; ?>
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td><label for="hrg">Harga</label></td>
-                <td><input type="number" name="harga_item" id="hrg" min="1" required></td>
-              </tr>
-              <tr>
-                <td><label for="jml">Jumlah</label></td>
-                <td><input type="number" name="jumlah_item" id="jml" min="1" max="999" required></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td style="text-align: right;">
-                  <a class="btn-merah" style="font-size: 0.85rem;" href="<?php echo BASE_URL . "app/item/item.php?page=item"; ?>">Batal</a>
-                  <input class="btn-biru" type="submit" name="tambah_item" value="Simpan">
-                </td>
-              </tr>
-            </table>
-          </form>
+    <div class="flex-container">
+      <div class="sidebar">
+        <div class="user-panel">
+          <?php
+          // Cek jika nama user tersedia
+          if (isset($nama_user)) {
+            // Menampilkan Nama User
+            echo $nama_user;
+          } else {
+            // Menampilkan Text Default
+            echo 'User';
+          }
+          ?>
         </div>
+        <ul>
+          <li class="<?php echo !$page ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "index.php"; ?>">Dasboard</a></li>
+          <li class="<?php echo $page == 'kategori' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/kategori/kategori.php?page=kategori"; ?>">kategori</a></li>
+          <li class="<?php echo $page == 'item' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/item/item.php?page=item"; ?>">Item</a></li>
+          <li class="<?php echo $page == 'stok' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/stok/stok.php?page=stok"; ?>">Stok</a></li>
+          <li><a href="<?php echo BASE_URL . 'app/auth/proses-logout.php?logout=1'; ?>">Logout</a></li>
+        </ul>
       </div>
+      <div class="main-content">
 
+        <?php
+        // Menyiapkan printah query untuk menarik data kategori
+        $query = "SELECT * FROM tb_kategori";
+        // Eksekusi Query
+        $execQuery = mysqli_query($db, $query) or die('Terjadi kesalahan pada perintah query: ' . mysqli_error($db)); // Menampilkan pesan error jika eksekusi gagal
+        ?>
+
+        <h1>Item</h1>
+        <hr class="garis-hor">
+        <div class='card' style="width: 70%; margin:auto;">
+          <h3 class='card-header'>
+            Tambah Item
+          </h3>
+          <div class='card-body'>
+            <form action="proses-tambah-item.php" method="POST">
+              <table class="table">
+                <tr>
+                  <td><label for="nm_item">Nama Barang</label></td>
+                  <td><input type="text" name="nama_item" id="nm_item" required></td>
+                </tr>
+                <tr>
+                  <td><label for="kat">Kategori</label></td>
+                  <td>
+                    <select name="kategori_item" id="kat" required>
+                      <option value="" selected>--Pilih--</option>
+                      <!-- Cek jika  data kategori tersedia dalam database -->
+                      <?php if (mysqli_num_rows($execQuery) != 0) : ?>
+                        <!-- Menarik semua data kategori -->
+                        <?php while ($data = mysqli_fetch_assoc($execQuery)) : ?>
+                          <option value="<?php echo $data['id_kat']; ?>"><?php echo $data['nama_kat']; ?></option>
+                        <?php endwhile; ?>
+                      <?php endif; ?>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="hrg">Harga</label></td>
+                  <td><input type="number" name="harga_item" id="hrg" min="1" required></td>
+                </tr>
+                <tr>
+                  <td><label for="jml">Jumlah</label></td>
+                  <td><input type="number" name="jumlah_item" id="jml" min="1" max="999" required></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style="text-align: right;">
+                    <a class="btn-merah" style="font-size: 0.85rem;" href="<?php echo BASE_URL . "app/item/item.php?page=item"; ?>">Batal</a>
+                    <input class="btn-biru" type="submit" name="tambah_item" value="Simpan">
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </div>
+        </div>
+
+      </div>
     </div>
+
     <footer class="footer">
       <h5>&copy; Copyright 2020 User</h5>
     </footer>

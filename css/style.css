@@ -25,13 +25,15 @@ html, body {
   height: 30px;
 }
 
+.flex-container {
+  display: flex;
+  align-items: stretch;
+  min-height: 90vh;
+}
+
 .sidebar {
   background-color: #404040;
-  margin: 0;
-  width: 20%;
-  height: 100%;
-  float: left;
-  overflow: hidden;
+  flex: 1;
 }
 
 .user-panel {
@@ -46,10 +48,9 @@ html, body {
 
 .main-content {
   color: #4d4d4d;
-  margin: 0;
-  padding: 20px;
-  height: 100%;
-  overflow: hidden;
+  flex: 4.5;
+  padding: 1rem;
+  padding-bottom: 5rem;
 }
 
 .footer {
