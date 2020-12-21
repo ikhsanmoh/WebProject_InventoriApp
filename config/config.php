@@ -1,6 +1,6 @@
 <?php
 // Membuat variabel/constant untuk menyimpan basis rute localhost atau hostingan website
-define("BASE_URL", "http://localhost/My%20File/Project/p16-InventoriesApp_TugasIndividu/"); // Lokasi folder aplikasi
+define("BASE_URL", "http://localhost/My-File/Project/p16-InventoriesApp_TugasIndividu/"); // Lokasi folder aplikasi
 
 // Untuk Koneksi Database
 $host = 'localhost'; // nama server
