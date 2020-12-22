@@ -159,6 +159,7 @@ a {
 .table input[type="text"],
 .table input[type="number"],
 .table input[type="password"],
+.table input[type="date"],
 .table select,
 .table textarea {
   width: 100%;
