@@ -140,14 +140,6 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                             <td><?php echo $data['stok']; ?></td>
                           </tr>
                           <?php endwhile; ?>
-                          <?php for ($i=0;$i<=15;$i++) : ?>
-                          <tr>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                          </tr>
-                          <?php endfor; ?>
                       <?php else : ?>
                         <!-- Menampilkan Tabel Kosong -->
                         <tr>

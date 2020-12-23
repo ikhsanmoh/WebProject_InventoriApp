@@ -98,15 +98,15 @@ $id_item = $_GET['id_item'];
               <input type="hidden" name="id_item" value="<?php echo $id_item ?>">
               <table class="table">
                 <tr>
-                  <td><label for="nm_supp">Nama Supplier</label></td>
+                  <td><label for="nm_supp">Nama Supplier <span style="color:red;">*</span></label></td>
                   <td><input type="text" name="nama_supplier" id="nm_supp" value="<?php echo $dataItem['nama_supplier']; ?>" required></td>
                 </tr>
                 <tr>
-                  <td><label for="nm_item">Nama Barang</label></td>
+                  <td><label for="nm_item">Nama Barang <span style="color:red;">*</span></label></td>
                   <td><input type="text" name="nama_item" id="nm_item" value="<?php echo $dataItem['nama_item']; ?>" required></td>
                 </tr>
                 <tr>
-                  <td><label for="kat">Kategori</label></td>
+                  <td><label for="kat">Kategori <span style="color:red;">*</span></label></td>
                   <td>
                     <select name="kategori_item" id="kat" required>
                       <option value="">--Pilih--</option>
@@ -121,11 +121,11 @@ $id_item = $_GET['id_item'];
                   </td>
                 </tr>
                 <tr>
-                  <td><label for="hrg_beli">Harga Beli</label></td>
+                  <td><label for="hrg_beli">Harga Beli <span style="color:red;">*</span></label></td>
                   <td><input type="number" name="harga_beli" id="hrg_beli" value="<?php echo $dataItem['harga_beli']; ?>" required></td>
                 </tr>
                 <tr>
-                  <td><label for="hrg_jual">Harga Jual</label></td>
+                  <td><label for="hrg_jual">Harga Jual <span style="color:red;">*</span></label></td>
                   <td><input type="number" name="harga_jual" id="hrg_jual" value="<?php echo $dataItem['harga_jual']; ?>" required></td>
                 </tr>
                 <tr>

@@ -78,19 +78,19 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
             <form action="proses-tambah-item.php" method="POST">
               <table class="table">
                 <tr>
-                  <td><label for="tgl">Tanggal</label></td>
+                  <td><label for="tgl">Tanggal <span style="color:red;">*</span></label></td>
                   <td><input type="text" name="tanggal" id="tgl" value="<?php echo $tgl; ?>" readonly></td>
                 </tr>
                 <tr>
-                  <td><label for="nm_supp">Nama Supplier</label></td>
+                  <td><label for="nm_supp">Nama Supplier <span style="color:red;">*</span></label></td>
                   <td><input type="text" name="nama_supplier" id="nm_supp" required></td>
                 </tr>  
                 <tr>
-                  <td><label for="nm_item">Nama Barang</label></td>
+                  <td><label for="nm_item">Nama Barang <span style="color:red;">*</span></label></td>
                   <td><input type="text" name="nama_item" id="nm_item" required></td>
                 </tr>
                 <tr>
-                  <td><label for="kat">Kategori</label></td>
+                  <td><label for="kat">Kategori <span style="color:red;">*</span></label></td>
                   <td>
                     <select name="kategori_item" id="kat" required>
                       <option value="" selected>--Pilih--</option>
@@ -105,15 +105,15 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                   </td>
                 </tr>
                 <tr>
-                  <td><label for="hrg-beli">Harga Beli</label></td>
+                  <td><label for="hrg-beli">Harga Beli <span style="color:red;">*</span></label></td>
                   <td><input type="number" name="harga_beli" id="hrg-beli" min="1" required></td>
                 </tr>
                 <tr>
-                  <td><label for="hrg-jual">Harga Jual</label></td>
+                  <td><label for="hrg-jual">Harga Jual <span style="color:red;">*</span></label></td>
                   <td><input type="number" name="harga_jual" id="hrg-jual" min="1" required></td>
                 </tr>
                 <tr>
-                  <td><label for="jml">Jumlah</label></td>
+                  <td><label for="jml">Jumlah <span style="color:red;">*</span></label></td>
                   <td><input type="number" name="jumlah_item" id="jml" min="1" max="999" required></td>
                 </tr>
                 <tr>

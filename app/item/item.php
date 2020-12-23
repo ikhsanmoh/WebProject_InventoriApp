@@ -98,7 +98,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                         <td style="font-size: 0.8rem;">
                           <a class="btn-hijau" href="<?php echo BASE_URL . "app/item/item-detail.php?page=item&id_item=$data[id_item]"; ?>">Lihat</a>
                           <a class="btn-biru" href="<?php echo BASE_URL . "app/item/edit-item.php?page=item&id_item=$data[id_item]"; ?>">Edit</a>
-                          <a class="btn-merah" onClick="return confirm('Aksi ini akan menghapus data item!')" href="<?php echo BASE_URL . "app/item/proses-hapus-item.php?id_item=$data[id_item]"; ?>">Hapus</a>
+                          <a class="btn-merah" onClick="return confirm('Aksi ini akan menghapus data item secara permanen!')" href="<?php echo BASE_URL . "app/item/proses-hapus-item.php?id_item=$data[id_item]"; ?>">Hapus</a>
                         </td>
                       </tr>
                     <?php endwhile; ?>

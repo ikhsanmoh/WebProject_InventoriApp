@@ -92,7 +92,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                         <td><?php echo $data['deskripsi_kat']; ?></td>
                         <td style="font-size: 0.8rem;">
                           <a class="btn-biru" href="<?php echo BASE_URL . "app/kategori/edit-kategori.php?page=kategori&id_kat=$data[id_kat]"; ?>">Edit</a>
-                          <a class="btn-merah" href="<?php echo BASE_URL . "app/kategori/proses-hapus-kategori.php?id_kat=$data[id_kat]"; ?>">Hapus</a>
+                          <a class="btn-merah" onClick="return confirm('Aksi ini akan menghapus data kategori secara permanen!')" href="<?php echo BASE_URL . "app/kategori/proses-hapus-kategori.php?id_kat=$data[id_kat]"; ?>">Hapus</a>
                         </td>
                       </tr>
                     <?php endwhile; ?>

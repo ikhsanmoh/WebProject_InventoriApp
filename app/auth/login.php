@@ -23,7 +23,7 @@ if (isset($_SESSION['username'])) {
   <div class="card-login">
     <h1>Login</h1><br>
     <form action="proses-login.php" method="POST">
-      <table class="table" style="text-align: left;">
+      <table class="table" style="text-align: left; width: 25rem">
         <tr>
           <td><label for="usernm">Username</label></td>
           <td><input type="text" name="username" id="usernm" required></td>

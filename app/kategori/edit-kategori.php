@@ -95,7 +95,7 @@ $id_kat = $_GET['id_kat'];
               <input type="hidden" name="id_kategori" value="<?php echo $id_kat; ?>">
               <table class="table">
                 <tr>
-                  <td><label for="nm_kat">Nama Kategori</label></td>
+                  <td><label for="nm_kat">Nama Kategori <span style="color:red;">*</span></label></td>
                   <td><input type="text" name="nama_kategori" id="nm_kat" value="<?php echo $data['nama_kat']; ?>" required></td>
                 </tr>
                 <tr>

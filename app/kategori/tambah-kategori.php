@@ -67,7 +67,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
             <form action="proses-tambah-kategori.php" method="POST">
               <table class="table">
                 <tr>
-                  <td><label for="nm_kat">Nama Kategori</label></td>
+                  <td><label for="nm_kat">Nama Kategori <span style="color:red;">*</span></label></td>
                   <td><input type="text" name="nama_kategori" id="nm_kat" required></td>
                 </tr>
                 <tr>

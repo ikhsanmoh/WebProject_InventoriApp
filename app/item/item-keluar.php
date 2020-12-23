@@ -78,11 +78,11 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
             <form action="proses-item-keluar.php" method="POST">
               <table class="table">
                 <tr>
-                  <td><label for="tgl">Tanggal</label></td>
+                  <td><label for="tgl">Tanggal <span style="color:red;">*</span></label></td>
                   <td><input type="text" name="tanggal" id="tgl" value="<?php echo $tgl; ?>" readonly></td>
                 </tr>
                 <tr>
-                  <td><label for="item">Barang</label></td>
+                  <td><label for="item">Barang <span style="color:red;">*</span></label></td>
                   <td>
                     <select name="id_item" id="item" required>
                       <option value="" selected>--Pilih--</option>
@@ -97,12 +97,12 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                   </td>
                 </tr>
                 <tr>
-                  <td><label for="jml">Jumlah</label></td>
+                  <td><label for="jml">Jumlah <span style="color:red;">*</span></label></td>
                   <td><input type="number" name="jumlah_item" id="jml" min="1" max="999" required></td>
                 </tr>
                 <tr>
                   <td><label for="ket">Keterangan</label></td>
-                  <td><textarea name="keterangan" id="ket" cols="30" rows="3"></textarea></td>
+                  <td><textarea name="keterangan" id="ket" cols="30" rows="3" placeholder="rusak, hilang, dll..."></textarea></td>
                 </tr>
                 <tr>
                   <td></td>
