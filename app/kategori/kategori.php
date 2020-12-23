@@ -49,8 +49,9 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
         <ul>
           <li class="<?php echo !$page ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "index.php"; ?>">Dasboard</a></li>
           <li class="<?php echo $page == 'kategori' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/kategori/kategori.php?page=kategori"; ?>">Kategori</a></li>
-          <li class="<?php echo $page == 'item' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/item/item.php?page=item"; ?>">Item</a></li>
-          <li class="<?php echo $page == 'stok' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/stok/stok.php?page=stok"; ?>">Stok</a></li>
+          <li class="<?php echo $page == 'item' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/item/item.php?page=item"; ?>">Kelola Item</a></li>
+          <li class="<?php echo $page == 'item-masuk' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/item/item-masuk.php?page=item-masuk"; ?>">Item Masuk</a></li>
+          <li class="<?php echo $page == 'item-keluar' ? 'active' : '' ?>"><a href="<?php echo BASE_URL . "app/item/item-keluar.php?page=item-keluar"; ?>">Item Keluar</a></li>
           <li><a href="<?php echo BASE_URL . 'app/auth/proses-logout.php?logout=1'; ?>">Logout</a></li>
         </ul>
       </div>
@@ -90,8 +91,8 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                         <td><?php echo $data['nama_kat']; ?></td>
                         <td><?php echo $data['deskripsi_kat']; ?></td>
                         <td style="font-size: 0.8rem;">
-                          <a class="btn-merah" href="<?php echo BASE_URL . "app/kategori/proses-hapus-kategori.php?id_kat=$data[id_kat]"; ?>">Hapus</a>
                           <a class="btn-biru" href="<?php echo BASE_URL . "app/kategori/edit-kategori.php?page=kategori&id_kat=$data[id_kat]"; ?>">Edit</a>
+                          <a class="btn-merah" href="<?php echo BASE_URL . "app/kategori/proses-hapus-kategori.php?id_kat=$data[id_kat]"; ?>">Hapus</a>
                         </td>
                       </tr>
                     <?php endwhile; ?>
