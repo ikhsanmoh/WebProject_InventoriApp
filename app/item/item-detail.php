@@ -9,6 +9,7 @@ if (!isset($_SESSION['username'])) {
   die();
 }
 
+
 // Menyimpan Nama User kedalam variabel
 $nama_user = $_SESSION['nama_user'];
 
@@ -19,11 +20,10 @@ if (!isset($_GET['id_item'])) {
   die();
 }
 
-// digunakan untuk menentukan aktivasi menu pada nav menu
+// Digunakan untuk menentukan aktivasi menu pada nav menu
 $page = isset($_GET['page']) ? $_GET['page'] : false;
 // menyimpan id_item kedalam variabel
 $id_item = $_GET['id_item'];
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@ $id_item = $_GET['id_item'];
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="<?php echo BASE_URL . "css/style.css"; ?>">
-  <title>Edit Item</title>
+  <title>Detail Item</title>
 </head>
 
 <body>
@@ -68,7 +68,7 @@ $id_item = $_GET['id_item'];
 
         <?php
         // Menyiapkan perintah query untuk menarik data item yg akan diedit dari database
-        $queryItem = "SELECT * FROM tb_item WHERE id_item = '$id_item'";
+        $queryItem = "SELECT * FROM tb_item LEFT JOIN tb_kategori ON tb_item.id_kat = tb_kategori.id_kat WHERE id_item = '$id_item'";
         // Eksekusi query
         $execQueryItem = mysqli_query($db, $queryItem) or die('Terjadi kesalahan pada Query: ' . mysqli_error($db)); // Jika terjadi kesalahan pada query maka akan menampilkan pesan Error
         // Cek jika id item yang akan diedit tersedia dalam database
@@ -79,59 +79,49 @@ $id_item = $_GET['id_item'];
         }
         // Menarik data hasil Eksekusi Query
         $dataItem = mysqli_fetch_assoc($execQueryItem);
-
-        // Menyiapkan printah query untuk menarik data kategori
-        $queryKategori = "SELECT * FROM tb_kategori";
-        // Eksekusi Query
-        $execQueryKategori = mysqli_query($db, $queryKategori) or die('Terjadi kesalahan pada perintah query: ' . mysqli_error($db)); // Menampilkan pesan error jika eksekusi gagal
         ?>
 
         <h1>Item</h1>
         <hr class="garis-hor">
         <div class='card' style="width: 70%; margin:auto;">
           <h3 class='card-header'>
-            Edit Item
+            Detail Item
           </h3>
           <div class='card-body'>
-            <form action="proses-update-item.php" method="POST">
-              <input type="hidden" name="id_item" value="<?php echo $id_item ?>">
+            <form action="proses-tambah-item.php" method="POST">
               <table class="table">
                 <tr>
-                  <td><label for="nm_supp">Nama Supplier</label></td>
-                  <td><input type="text" name="nama_supplier" id="nm_supp" value="<?php echo $dataItem['nama_supplier']; ?>" required></td>
+                  <td>Tanggal Masuk<span style="float: right;">:</span></td>
+                  <td><?php echo date('d-m-Y', strtotime($dataItem['tanggal'])); ?></td>
                 </tr>
                 <tr>
-                  <td><label for="nm_item">Nama Barang</label></td>
-                  <td><input type="text" name="nama_item" id="nm_item" value="<?php echo $dataItem['nama_item']; ?>" required></td>
+                  <td>Supplier<span style="float: right;">:</span></td>
+                  <td><?php echo $dataItem['nama_supplier']; ?></td>
                 </tr>
                 <tr>
-                  <td><label for="kat">Kategori</label></td>
-                  <td>
-                    <select name="kategori_item" id="kat" required>
-                      <option value="">--Pilih--</option>
-                      <!-- Cek jika data kategori tersedia dalam database -->
-                      <?php if (mysqli_num_rows($execQueryKategori) != 0) : ?>
-                        <!-- Menarik semua data kategori -->
-                        <?php while ($dataKategori = mysqli_fetch_assoc($execQueryKategori)) : ?>
-                          <option value="<?php echo $dataKategori['id_kat']; ?>"><?php echo $dataKategori['nama_kat']; ?></option>
-                        <?php endwhile; ?>
-                      <?php endif; ?>
-                    </select>
-                  </td>
+                  <td>Barang<span style="float: right;">:</span></td>
+                  <td><?php echo $dataItem['nama_item']; ?></td>
                 </tr>
                 <tr>
-                  <td><label for="hrg_beli">Harga Beli</label></td>
-                  <td><input type="number" name="harga_beli" id="hrg_beli" value="<?php echo $dataItem['harga_beli']; ?>" required></td>
+                  <td>Kategori<span style="float: right;">:</span></td>
+                  <td><?php echo !empty($dataItem['nama_kat']) ? $dataItem['nama_kat'] : '-'; ?></td>
                 </tr>
                 <tr>
-                  <td><label for="hrg_jual">Harga Jual</label></td>
-                  <td><input type="number" name="harga_jual" id="hrg_jual" value="<?php echo $dataItem['harga_jual']; ?>" required></td>
+                  <td>Harga Beli<span style="float: right;">:</span></td>
+                  <td><?php echo $dataItem['harga_beli']; ?></td>
+                </tr>
+                <tr>
+                  <td>Harga Jual<span style="float: right;">:</span></td>
+                  <td><?php echo $dataItem['harga_jual']; ?></td>
+                </tr>
+                <tr>
+                  <td>Stok<span style="float: right;">:</span></td>
+                  <td><?php echo $dataItem['stok']; ?></td>
                 </tr>
                 <tr>
                   <td></td>
                   <td style="text-align: right;">
-                    <a class="btn-merah" style="font-size: 0.85rem;" href="<?php echo BASE_URL . "app/item/item.php?page=item"; ?>">Batal</a>
-                    <input class="btn-biru" type="submit" name="update_item" value="Simpan">
+                    <a class="btn-merah" style="font-size: 0.85rem;" href="<?php echo BASE_URL . "app/item/item.php?page=item"; ?>">Kembali</a>
                   </td>
                 </tr>
               </table>

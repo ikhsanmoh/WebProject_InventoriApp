@@ -11,12 +11,14 @@ if (!isset($_POST['update_item'])) {
 
 // Menyimpan data POST yang dikirim dari form edit item kedalam variabel
 $id_item = $_POST['id_item'];
+$nama_supp = $_POST['nama_supplier'];
 $nama_item = $_POST['nama_item'];
 $kat_item = $_POST['kategori_item'] == '0' ? '-' : $_POST['kategori_item']; // Jika kategori dikosongkan maka var diisi dgn string "-"
-$hrg = $_POST['harga_item'];
+$hrg_beli = $_POST['harga_beli'];
+$hrg_jual = $_POST['harga_jual'];
 
 // Menyiapkan Perintah Query untuk menyimpan data
-$query = "UPDATE tb_item SET nama_item = '$nama_item', id_kat = '$kat_item', harga = '$hrg' WHERE id_item = '$id_item'";
+$query = "UPDATE tb_item SET nama_supplier = '$nama_supp', nama_item = '$nama_item', id_kat = '$kat_item', harga_beli = '$hrg_beli', harga_jual = '$hrg_jual' WHERE id_item = '$id_item'";
 // Eksekusi Perintah Query untuk menyimpan data kedalam database
 $execQuery = mysqli_query($db, $query) or die('Kesalahan pada Perintah Query: ' . mysqli_error($db)); // Jika Query gagal di eksekusi maka akan tampil pesan Error
 

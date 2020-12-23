@@ -72,13 +72,14 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
           </h3>
           <div class='card-body'>
             <div style="width: 98%; margin: auto;">
-              <a class="btn-hijau" href="<?php echo BASE_URL . "app/item/tambah-item.php?page=item"; ?>">Tambah Produk</a><br><br>
               <table class="table-strip" style="width: 100%; text-align: center;">
                 <thead>
                   <th>#</th>
                   <th>Nama Produk</th>
                   <th>Kategori</th>
-                  <th>Harga</th>
+                  <th>Harga Beli</th>
+                  <th>Harga Jual</th>
+                  <th>Stok</th>
                   <th>Aksi</th>
                 </thead>
                 <tbody>
@@ -90,10 +91,13 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                         <td><?php echo $no++; ?></td>
                         <td><?php echo $data['nama_item']; ?></td>
                         <td><?php echo !empty($data['nama_kat']) ? $data['nama_kat'] : '-'; ?></td>
-                        <td><?php echo $data['harga']; ?></td>
+                        <td><?php echo $data['harga_beli']; ?></td>
+                        <td><?php echo $data['harga_jual']; ?></td>
+                        <td><?php echo $data['stok']; ?></td>
                         <td style="font-size: 0.8rem;">
-                          <a class="btn-merah" href="<?php echo BASE_URL . "app/item/proses-hapus-item.php?id_item=$data[id_item]"; ?>">Hapus</a>
+                          <a class="btn-hijau" href="<?php echo BASE_URL . "app/item/item-detail.php?page=item&id_item=$data[id_item]"; ?>">Lihat</a>
                           <a class="btn-biru" href="<?php echo BASE_URL . "app/item/edit-item.php?page=item&id_item=$data[id_item]"; ?>">Edit</a>
+                          <a class="btn-merah" onClick="return confirm('Aksi ini akan menghapus data item!')" href="<?php echo BASE_URL . "app/item/proses-hapus-item.php?id_item=$data[id_item]"; ?>">Hapus</a>
                         </td>
                       </tr>
                     <?php endwhile; ?>
