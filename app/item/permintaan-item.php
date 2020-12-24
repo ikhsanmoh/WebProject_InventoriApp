@@ -60,7 +60,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
 
         <?php
         // Menyiapkan perintah query untuk menarik data dari database
-        $query = "SELECT * FROM tb_kategori";
+        $query = "SELECT a.*, b.nama_supplier, b.nama_item, b.stok FROM tb_permintaan_item a INNER JOIN tb_item b ON a.id_item = b.id_item";
         // Eksekusi query untuk menarik data
         $execQuery = mysqli_query($db, $query) or die('Eksekusi Perintah Query Gagal: ' . mysqli_error($db)); // Menampilkan pesan error jika query gagal dieksekusi
         $no = 1; // Untuk No urutan pada table
@@ -70,16 +70,20 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
         <hr class="garis-hor">
         <div class='card'>
           <h3 class='card-header'>
-            Daftar Kategori
+            Daftar Permintaan Item
           </h3>
           <div class='card-body'>
             <div style="width: 98%; margin: auto;">
-              <a class="btn-hijau" href="<?php echo BASE_URL . "app/kategori/tambah-kategori.php?page=kategori"; ?>">Tambah Kategori</a><br><br>
+              <a class="btn-hijau" href="<?php echo BASE_URL . "app/item/tambah-permintaan-item.php?page=permintaan-item"; ?>">Tambah Permintaan Item</a><br><br>
               <table class="table-strip" style="width: 100%; text-align: center;">
-                <thead>
+              <thead>
                   <th>#</th>
-                  <th>Nama</th>
-                  <th>Deskripsi</th>
+                  <th>Tanggal Pengajuan</th>
+                  <th>Supplier</th>
+                  <th>Produk</th>
+                  <th>Stok</th>
+                  <th>Jumlah Permintaan</th>
+                  <th>Keterangan</th>
                   <th>Aksi</th>
                 </thead>
                 <tbody>
@@ -89,22 +93,27 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
                     <?php while ($data = mysqli_fetch_assoc($execQuery)) : ?>
                       <tr>
                         <td><?php echo $no++; ?></td>
-                        <td><?php echo $data['nama_kat']; ?></td>
-                        <td><?php echo $data['deskripsi_kat']; ?></td>
+                        <td><?php echo $data['tanggal']; ?></td>
+                        <td><?php echo $data['nama_supplier']; ?></td>
+                        <td><?php echo $data['nama_item']; ?></td>
+                        <td><?php echo $data['stok']; ?></td>
+                        <td><?php echo $data['jumlah']; ?></td>
+                        <td><?php echo $data['keterangan']; ?></td>
                         <td style="font-size: 0.8rem;">
-                          <a class="btn-biru" href="<?php echo BASE_URL . "app/kategori/edit-kategori.php?page=kategori&id_kat=$data[id_kat]"; ?>">Edit</a>
-                          <a class="btn-merah" onClick="return confirm('Aksi ini akan menghapus data kategori secara permanen!')" href="<?php echo BASE_URL . "app/kategori/proses-hapus-kategori.php?id_kat=$data[id_kat]"; ?>">Hapus</a>
+                          <a class="btn-biru" href="<?php echo BASE_URL . "app/item/edit-permintaan-item.php?page=permintaan-item&id_permintaan_item=$data[id_permintaan]"; ?>">Edit</a>
+                          <a class="btn-merah" onClick="return confirm('Aksi ini akan menghapus data permintaan secara permanen!')" href="<?php echo BASE_URL . "app/item/proses-hapus-permintaan-item.php?id_permintaan_item=$data[id_permintaan]"; ?>">Hapus</a>
                         </td>
                       </tr>
                     <?php endwhile; ?>
                   <?php else : ?>
                     <!-- Menampilkan Tabel Kosong -->
                     <tr>
-                      <td colspan="4">
+                      <td colspan="8">
                         <center>Data Kosong!</center>
                       </td>
                     </tr>
                   <?php endif ?>
+                </tbody>
                 </tbody>
               </table>
             </div>
