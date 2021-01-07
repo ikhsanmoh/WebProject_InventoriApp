@@ -63,6 +63,13 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
         $query = "SELECT a.*, b.nama_supplier, b.nama_item, b.stok FROM tb_permintaan_item a INNER JOIN tb_item b ON a.id_item = b.id_item";
         // Eksekusi query untuk menarik data
         $execQuery = mysqli_query($db, $query) or die('Eksekusi Perintah Query Gagal: ' . mysqli_error($db)); // Menampilkan pesan error jika query gagal dieksekusi
+        
+        // Deklarasi dan inisiasi var btn - digunakan untuk menentukan suatu tombol tampil atau tidak
+        $btn = false;
+        if (mysqli_num_rows($execQuery) != 0 ) {
+          $btn = true;
+        }
+
         $no = 1; // Untuk No urutan pada table
         ?>
 
@@ -74,9 +81,16 @@ $page = isset($_GET['page']) ? $_GET['page'] : false;
           </h3>
           <div class='card-body'>
             <div style="width: 98%; margin: auto;">
-              <a class="btn-hijau" href="<?php echo BASE_URL . "app/item/tambah-permintaan-item.php?page=permintaan-item"; ?>">Tambah Permintaan Item</a><br><br>
+              <div>
+                <a class="btn-hijau" style="float:left;" href="<?php echo BASE_URL . "app/item/tambah-permintaan-item.php?page=permintaan-item"; ?>">Tambah Permintaan Item</a>
+                <?php if($btn): ?>
+                  <form style="float: right;" action="<?php echo BASE_URL . "app/item/laporan-permintaan-item.php";?>" method="POST" target='_BLANK'>
+                    <input class="btn-biru" type="submit" name="btn_laporan" value="Print">
+                  </form>
+                <?php endif; ?>
+              </div><br><br><br>
               <table class="table-strip" style="width: 100%; text-align: center;">
-              <thead>
+                <thead>
                   <th>#</th>
                   <th>Tanggal Pengajuan</th>
                   <th>Supplier</th>
