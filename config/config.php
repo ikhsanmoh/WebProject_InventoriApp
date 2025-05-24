@@ -1,12 +1,12 @@
 <?php
 // Membuat variabel/constant untuk menyimpan basis rute localhost atau hostingan website
-define("BASE_URL", "http://localhost/My-File/Project/p16-InventoriesApp_TugasIndividu/"); // Lokasi folder aplikasi
+define("BASE_URL", "http://localhost:8888/WebProject_InventoriApp/"); // Lokasi folder aplikasi
 
 // Untuk Koneksi Database
-$host = 'localhost'; // nama server
+$host = 'localhost:8889'; // nama server
 $user = 'root'; //username
-$pass = ''; // password
-$dbname = 'p_DBinventori'; // nama database
+$pass = 'root'; // password
+$dbname = 'webInventory'; // nama database
 
 // Menjalankan koneksi dengan database
 $db = new mysqli($host, $user, $pass, $dbname);
